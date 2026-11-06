@@ -27,6 +27,8 @@ services:
           path: ./client/tsr.config.json
 
   backend:
+    env_file:
+      - .env
     build: ./server
     ports:
       - "8080:8080"
