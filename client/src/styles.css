@@ -1,17 +1,321 @@
-
-@import "tailwindcss";
-
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap");
+:root {
+	font-family: "DM Sans", sans-serif;
+	color: #203b32;
+	background: #f5f6f2;
+	font-synthesis: none;
+}
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
-
-html,
-body,
-#app {
-  min-height: 100%;
-}
-
 body {
-  margin: 0;
+	margin: 0;
 }
-
+main {
+	max-width: 1120px;
+	margin: auto;
+	padding: 0 36px 60px;
+}
+.app-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 100px;
+	border-bottom: 1px solid #dce2da;
+}
+.brand {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	color: #234638;
+	text-decoration: none;
+	font-size: 23px;
+	font-weight: 750;
+	letter-spacing: -1px;
+}
+.brand-symbol {
+	display: grid;
+	place-items: center;
+	background: #234638;
+	color: #e9f1dc;
+	width: 40px;
+	height: 40px;
+	border-radius: 13px;
+	font-size: 30px;
+	line-height: 1;
+}
+.brand-dot {
+	font-size: 12px;
+	align-self: flex-start;
+	padding-top: 8px;
+	margin-left: -8px;
+}
+.header-note {
+	color: #7b897e;
+	font-size: 12px;
+}
+.page-heading {
+	padding: 48px 0 24px;
+}
+.eyebrow {
+	color: #7c8f6c;
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 1.7px;
+	margin: 0 0 12px;
+}
+h1,
+h2,
+h3 {
+	font-family: "Manrope", sans-serif;
+}
+h1 {
+	font-size: clamp(30px, 4vw, 44px);
+	font-weight: 600;
+	letter-spacing: -1.8px;
+	line-height: 1.2;
+	margin: 0 0 14px;
+}
+.page-heading > p:last-child {
+	color: #78847b;
+	font-size: 14px;
+}
+p {
+	line-height: 1.6;
+	overflow-wrap: anywhere;
+}
+.account-bar {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	font-size: 12px;
+	color: #748277;
+	margin: 0;
+	padding: 0 0 22px;
+}
+.account-bar button {
+	padding: 6px 12px;
+	font-size: 11px;
+}
+.account-type {
+	font-size: 11px;
+	color: #748277;
+	margin: 0 0 14px;
+}
+.portal-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 24px;
+	align-items: stretch;
+}
+section {
+	background: #fff;
+	border: 1px solid #e1e7dd;
+	border-radius: 18px;
+	padding: 30px;
+	box-shadow: 0 4px 22px #243b2505;
+}
+h2 {
+	font-size: 22px;
+	font-weight: 650;
+	letter-spacing: -0.7px;
+	margin: 0 0 8px;
+}
+.section-description,
+.auth-card > p:not(.eyebrow) {
+	font-size: 12px;
+	color: #879083;
+	margin: 0 0 25px;
+}
+form {
+	display: grid;
+	gap: 18px;
+}
+label {
+	display: grid;
+	gap: 8px;
+	font-size: 12px;
+	font-weight: 550;
+	color: #4a5f50;
+}
+input,
+select,
+button {
+	font: inherit;
+}
+input,
+select {
+	width: 100%;
+	min-width: 0;
+	height: 45px;
+	padding: 10px 12px;
+	border: 1px solid #dfe5db;
+	background: #fafbf8;
+	color: #284236;
+	border-radius: 8px;
+	font-size: 13px;
+	transition:
+		border-color 0.15s,
+		box-shadow 0.15s;
+}
+input:focus,
+select:focus {
+	outline: none;
+	border-color: #7b9c65;
+	box-shadow: 0 0 0 3px #b9cba62b;
+}
+button {
+	border: 1px solid #dce3d6;
+	border-radius: 8px;
+	background: transparent;
+	color: #5c715c;
+	cursor: pointer;
+	padding: 12px 18px;
+	font-size: 12px;
+	font-weight: 650;
+	transition:
+		background 0.15s,
+		transform 0.15s;
+}
+button:hover {
+	background: #f0f3ea;
+}
+form > button:not([type="button"]) {
+	background: #274c39;
+	color: #f6f8ee;
+	border-color: #274c39;
+	margin-top: 2px;
+}
+form > button:not([type="button"]):hover {
+	background: #345e46;
+}
+button:focus-visible {
+	outline: 3px solid #a7bd8f;
+	outline-offset: 3px;
+}
+button:disabled {
+	opacity: 0.55;
+	cursor: wait;
+}
+form > button[type="button"] {
+	border: none;
+	font-size: 11px;
+	color: #9b7667;
+	padding: 5px;
+}
+.rental-history {
+	margin-top: 24px;
+}
+.section-heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.count {
+	background: #f0f3eb;
+	border-radius: 9px;
+	padding: 5px 11px;
+	font-size: 12px;
+	color: #798a6b;
+}
+.empty-state {
+	text-align: center;
+	padding: 30px 10px 18px;
+}
+.empty-state > span {
+	display: inline-grid;
+	place-items: center;
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	background: #f2f4ed;
+	color: #879d71;
+	font-size: 22px;
+}
+h3 {
+	font-size: 15px;
+	font-weight: 600;
+	letter-spacing: -0.3px;
+	margin: 12px 0 6px;
+}
+.empty-state p {
+	font-size: 12px;
+	color: #8b9488;
+	margin: 0;
+}
+.rental-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid #edf0e9;
+	margin-top: 20px;
+	padding-top: 20px;
+	gap: 16px;
+}
+.rental-row h3 {
+	margin: 4px 0;
+}
+.rental-row p {
+	margin: 0;
+	color: #8b9488;
+	font-size: 12px;
+}
+.rental-row .order-number {
+	font-size: 9px;
+	letter-spacing: 1px;
+}
+.status-badge {
+	color: #9b7a35;
+	background: #fbf4df;
+	border: 1px solid #f2e6be;
+	padding: 6px 12px;
+	border-radius: 30px;
+	font-size: 10px;
+}
+[role="status"] {
+	font-size: 12px;
+	border: 1px solid #dce4d0;
+	background: #edf2e5;
+	border-radius: 9px;
+	padding: 12px 16px;
+}
+.auth-card {
+	max-width: 440px;
+	margin: 8px auto 32px;
+	padding: 36px;
+}
+.auth-card > button {
+	margin-top: 18px;
+	width: 100%;
+	border: 0;
+}
+@media (max-width: 700px) {
+	main {
+		padding: 0 20px 40px;
+	}
+	.app-header {
+		min-height: 80px;
+	}
+	.header-note {
+		display: none;
+	}
+	.page-heading {
+		padding-top: 32px;
+	}
+	.portal-grid {
+		grid-template-columns: 1fr;
+		gap: 18px;
+	}
+	section {
+		padding: 24px;
+	}
+	.account-bar {
+		flex-wrap: wrap;
+	}
+	.rental-history {
+		margin-top: 18px;
+	}
+	.auth-card {
+		padding: 28px;
+	}
+}
