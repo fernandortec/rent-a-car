@@ -1,3 +1,11 @@
+export class APIError extends Error {
+  constructor(
+    public status: number,
+    message: string,
+  ) {
+    super(message);
+  }
+}
 const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 type APIOptions = RequestInit & {
@@ -17,6 +25,7 @@ export async function API<T>(
   }: APIOptions = {},
 ): Promise<T> {
   const requestHeaders = new Headers(headers);
+  if (options.body) requestHeaders.set("Content-Type", "application/json");
   if (accessToken) requestHeaders.set("Authorization", `Bearer ${accessToken}`);
 
   const response = await fetch(
@@ -25,8 +34,15 @@ export async function API<T>(
   );
 
   if (!response.ok) {
-    throw new Error(response.status === 401 ? unauthorizedMessage : errorMessage);
+    const body = await response.json().catch(() => null);
+    throw new APIError(
+      response.status,
+      response.status === 401
+        ? unauthorizedMessage
+        : body?.message || errorMessage,
+    );
   }
 
+  if (response.status === 204) return undefined as T;
   return response.json();
 }
